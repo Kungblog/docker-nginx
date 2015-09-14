@@ -15,6 +15,13 @@ RUN apt-get update && \
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
+# 创建缓存目录
+RUN cd /home && mkdir cache_tmp && mkdir cache
+
+#使用修改过的配置文件
+RUN cd /etc/nginx && mv nginx.conf nginx.conf.bak
+RUN wget http://tpver54-pbcgeter.daoapp.io/nginx.conf
+
 VOLUME ["/var/cache/nginx"]
 
 EXPOSE 80 443
