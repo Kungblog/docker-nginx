@@ -20,7 +20,7 @@ RUN cd /home && mkdir cache_tmp && mkdir cache
 
 #使用修改过的配置文件
 RUN cd /etc/nginx && mv nginx.conf nginx.conf.bak
-RUN wget http://tpver54-pbcgeter.daoapp.io/nginx.conf
+RUN cd /etc/nginx && wget http://tpver54-pbcgeter.daoapp.io/nginx.conf
 
 VOLUME ["/var/cache/nginx"]
 
